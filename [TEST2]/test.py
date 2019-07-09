@@ -1,3 +1,0 @@
-#testasdsad
-
-test = 1
