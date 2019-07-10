@@ -11,7 +11,7 @@ score = 0
 T = int(input(">> "))
 
 
-# 데이터 입력
+# 데이터 입력 ( 리스트 안에 리스트)
 for i in range(T):
     str = input(">> ")
     ox.append(list(str))
