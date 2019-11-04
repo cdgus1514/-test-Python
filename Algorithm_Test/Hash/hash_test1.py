@@ -1,4 +1,4 @@
-# 해시
+## 완주하지 못한 선수
 # O(n)
 
 def solution(participant, completion):

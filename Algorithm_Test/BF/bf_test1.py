@@ -1,4 +1,4 @@
-# 해시
+# 모의고사
 # O(n)
 
 def solution(answer):    
