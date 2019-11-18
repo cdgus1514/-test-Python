@@ -11,8 +11,8 @@ def solution(s):
 
 
 #################################
-# s1 = 'abcde'
-s1 = 'qwer'
+s1 = 'abcde'
+# s1 = 'qwer'
 # s1 = 'iuoiewrmcx'   # ew
 # s1 = 'dasjflkjdsafoijcsvkjmlksdamfklsadfjmoisjadvniosadnvmndasfsdafdsf'  # 64 >> ad
 # s1 = 'kdfajssdaoifjsdakfmsdkalmfsadikfjisaodjfosadjfmsadkmfsdnmfiosndafoinsdaiofnsdaf'    # 79 >> f

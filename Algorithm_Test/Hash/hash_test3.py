@@ -2,6 +2,7 @@ from collections import Counter
 
 def solution(clothes):
     clothes_category = Counter([cat for _, cat in clothes])
+    print(type(clothes_category))
     all_possible = 1
 
     for key in clothes_category:
@@ -20,25 +21,9 @@ clothes = [["crow_mask", "face"], ["blue_sunglasses", "face"], ["smoky_makeup", 
 
 ######################################################################################################
 
-# print(solution(clothes))
+print(solution(clothes))
 
 
-clothes_category = Counter([cat for _, cat in clothes])
-all_possible = 1
+########### summary ###########
 
-for key in clothes_category:
-    all_possible *= clothes_category[key] + 1
-
-print(all_possible-1)
-
-
-
-clothes_category = dict()
-###########
-
-for i in clothes:
-
-    if clothes[i][0] in clothes_category:
-        clothes_category[clothes[i][1]] = list.append(clothes[i][0])
-    else:
-        clothes_category[clothes[i][1]] = list(clothes[i][0])
+# Counter >> 집합에서 각 원소의 출현 횟수를 세어서 유지
