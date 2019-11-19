@@ -1,3 +1,5 @@
 # -test-Python
 
-Python Study (Baekjoon Algorithm)
+Python algorithm Study
+(Baekjoon Algorithm)
+(Programers)
