@@ -1,27 +1,30 @@
-# 비밀지도
+# 다트게임
+
+# 정규표현식 사용
+import re
+
+db = {'S': '**1', 'D': '**2', 'T': '**3', '#': '*-1'}
 
 
-def solution(n, arr1, arr2):
-    answer = []
+def solution(dartResult):
+    answer = ''
+    for i in re.sub('([SDT][*#]?)', '\g<1> ', dartResult).split():
+        if i[-1] == '*':
+            if answer:
+                answer = answer[:-1] + '*2+'
+            i += '2'
 
-    for a1, a2 in zip(arr1, arr2):
+        for j in db.keys():
+            i = i.replace(j, db[j])
 
-        # OR연산으로 겹치는 공간 확인 후 2진수로 변경
-        a12 = str(bin(a1 | a2))[2:]
-        a12 = '0' * (n - len(a12)) + a12
+        answer += i + "+"
 
-        a12 = a12.replace('1', '#')
-        a12 = a12.replace('0', ' ')
-
-        answer.append(a12)
-
-    return answer
+    print(answer[:-1])
+    return eval(answer[:-1])
 
 
 ################################################################################
-n = 5
-arr1 = [9, 20, 28, 18, 11]
-arr2 = [30, 1, 21, 17, 28]
-
-print(solution(n, arr1, arr2))
+dartResult = '1S2D*3T'
+# dartResult = '1D#2S*3S'
+print(solution(dartResult))
 ################################################################################
