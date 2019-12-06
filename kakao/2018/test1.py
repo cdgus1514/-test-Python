@@ -1,30 +1,39 @@
-# 다트게임
+# 캐시
 
-# 정규표현식 사용
-import re
-
-db = {'S': '**1', 'D': '**2', 'T': '**3', '#': '*-1'}
+## LRU : 가장 오래된 것부터 제거
 
 
-def solution(dartResult):
-    answer = ''
-    for i in re.sub('([SDT][*#]?)', '\g<1> ', dartResult).split():
-        if i[-1] == '*':
-            if answer:
-                answer = answer[:-1] + '*2+'
-            i += '2'
+def solution(cacheSize, cities):
+    cache = []
+    answer = 0
 
-        for j in db.keys():
-            i = i.replace(j, db[j])
+    if cacheSize == 0:
+        return len(cities) * 5
 
-        answer += i + "+"
+    for c in cities:
+        c = c.lower()
 
-    print(answer[:-1])
-    return eval(answer[:-1])
+        if c in cache: # 리스트에 있다면 패스
+            cache.pop(cache.index(c))
+            cache.append(c)
+            answer += 1
+        else:
+            if len(cache) < cacheSize:
+                cache.append(c)
+            else:
+                cache = cache[1:] + [c]
+            
+            answer += 5
+
+    return answer
+
 
 
 ################################################################################
-dartResult = '1S2D*3T'
-# dartResult = '1D#2S*3S'
-print(solution(dartResult))
+cacheSize = 2
+# cities = ['Jeju', 'Pangyo', 'Seoul', 'NewYork', 'LA', 'Jeju', 'Pangyo', 'Seoul', 'NewYork', 'LA']
+# cities = ['Jeju', 'Pangyo', 'Seoul', 'NewYork', 'LA', 'SanFrancisco', 'Seoul', 'Rome', 'Paris', 'Jeju', 'NewYork', 'Rome']
+cities = ["Jeju", "Pangyo", "NewYork", "newyork"]
+
+print(solution(cacheSize, cities))
 ################################################################################
