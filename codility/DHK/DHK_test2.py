@@ -24,7 +24,6 @@ def solution(A):
     if len(cnt) == 0 or max(cnt.values()) <= 1:
             return 0
 
-
     for k, v in cnt.items():
         value = k ** v
         result[k] = value
