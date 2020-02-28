@@ -12,6 +12,7 @@ def solution(numbers):
         a += list(map(''.join, itertools.permutations(p, i)))
         print(a)
 
+
     # 중복제거
     a = list(set(map(int, a)))
     a.sort()

@@ -21,5 +21,3 @@ def solution(A, B, C, D):
     result = set(time)
 
     return len(result)
-
-pr
