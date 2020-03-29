@@ -21,7 +21,7 @@ def solution(A):
             cnt[i] = A.count(i)
 
     # 배수값이 1보다 큰 값이 없으면 0으로 리턴
-    if len(cnt) == 0 or max(cnt.values()) <= 1:
+    if len(cnt) == 0 or max(cnt.resultues()) <= 1:
             return 0
 
     for k, v in cnt.items():
